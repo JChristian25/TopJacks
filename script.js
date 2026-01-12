@@ -3,47 +3,47 @@ const menuData = [
     {
         category: "BILAO",
         items: [
-            { name: "Bihon", image: "img/menu/bilao/bihon.png" },
-            { name: "Canton Bihon", image: "img/menu/bilao/canton-bihon.png" },
-            { name: "Canton Guisado", image: "img/menu/bilao/canton-guisado.png" },
-            { name: "Jacks Special Bilao", image: "img/menu/bilao/jacks-special-bilao.png" },
-            { name: "Miki Bihon", image: "img/menu/bilao/miki-bihon.png" },
-            { name: "Palabok", image: "img/menu/bilao/palabok.png" },
-            { name: "Spaghetti", image: "img/menu/bilao/spaghetti.png" }
+            { name: "Bihon", image: "img/menu/bilao/bihon.webp" },
+            { name: "Canton Bihon", image: "img/menu/bilao/canton-bihon.webp" },
+            { name: "Canton Guisado", image: "img/menu/bilao/canton-guisado.webp" },
+            { name: "Jacks Special Bilao", image: "img/menu/bilao/jacks-special-bilao.webp" },
+            { name: "Miki Bihon", image: "img/menu/bilao/miki-bihon.webp" },
+            { name: "Palabok", image: "img/menu/bilao/palabok.webp" },
+            { name: "Spaghetti", image: "img/menu/bilao/spaghetti.webp" }
         ]
     },
     {
         category: "CHICKEN",
         items: [
-            { name: "Battered Chicken", image: "img/menu/chicken/battered-chicken.png" },
-            { name: "Chicken Curry", image: "img/menu/chicken/chicken-curry.png" },
-            { name: "Chicken Mushroom", image: "img/menu/chicken/chicken-mushroom.png" },
-            { name: "Spicy Chicken", image: "img/menu/chicken/spicy-chicken.png" }
+            { name: "Battered Chicken", image: "img/menu/chicken/battered-chicken.webp" },
+            { name: "Chicken Curry", image: "img/menu/chicken/chicken-curry.webp" },
+            { name: "Chicken Mushroom", image: "img/menu/chicken/chicken-mushroom.webp" },
+            { name: "Spicy Chicken", image: "img/menu/chicken/spicy-chicken.webp" }
         ]
     },
     {
         category: "PANCIT SHORT ORDER",
         items: [
-            { name: "Bihon Guisado", image: "img/menu/pancit/bihon-guisado.png" },
-            { name: "Canton Bihon", image: "img/menu/pancit/canton-bihon.png" },
-            { name: "Canton Guisado", image: "img/menu/pancit/canton-guisado.png" },
-            { name: "Jacks Special", image: "img/menu/pancit/jacks-special.png" },
-            { name: "Miki Bihon", image: "img/menu/pancit/miki-bihon.png" },
-            { name: "Special Lomi", image: "img/menu/pancit/special-lomi.png" }
+            { name: "Bihon Guisado", image: "img/menu/pancit/bihon-guisado.webp" },
+            { name: "Canton Bihon", image: "img/menu/pancit/canton-bihon.webp" },
+            { name: "Canton Guisado", image: "img/menu/pancit/canton-guisado.webp" },
+            { name: "Jacks Special", image: "img/menu/pancit/jacks-special.webp" },
+            { name: "Miki Bihon", image: "img/menu/pancit/miki-bihon.webp" },
+            { name: "Special Lomi", image: "img/menu/pancit/special-lomi.webp" }
         ]
     },
     {
         category: "PORK AND VEGGIES",
         items: [
-            { name: "Crispy Pata", image: "img/menu/pork/crispy-pata.png" },
-            { name: "Lechon con Ampalaya", image: "img/menu/pork/lechon-con-ampalaya.png" },
-            { name: "Lechon on Tokwa", image: "img/menu/pork/lechon-con-tokwa.png" },
-            { name: "Lumpiang Shanghai", image: "img/menu/pork/lumpiang-shanghai.png" },
-            { name: "Pata Tim", image: "img/menu/pork/pata-tim.png" },
-            { name: "Pork Chopsuey", image: "img/menu/pork/pork-chopsuey.png" },
-            { name: "Pork Mushroom", image: "img/menu/pork/pork-mushroom.png" },
-            { name: "Pork Sisig", image: "img/menu/pork/pork-sisig.png" },
-            { name: "Sweet and Sour Pork", image: "img/menu/pork/sweet-and-sour-pork.png" }
+            { name: "Crispy Pata", image: "img/menu/pork/crispy-pata.webp" },
+            { name: "Lechon con Ampalaya", image: "img/menu/pork/lechon-con-ampalaya.webp" },
+            { name: "Lechon on Tokwa", image: "img/menu/pork/lechon-con-tokwa.webp" },
+            { name: "Lumpiang Shanghai", image: "img/menu/pork/lumpiang-shanghai.webp" },
+            { name: "Pata Tim", image: "img/menu/pork/pata-tim.webp" },
+            { name: "Pork Chopsuey", image: "img/menu/pork/pork-chopsuey.webp" },
+            { name: "Pork Mushroom", image: "img/menu/pork/pork-mushroom.webp" },
+            { name: "Pork Sisig", image: "img/menu/pork/pork-sisig.webp" },
+            { name: "Sweet and Sour Pork", image: "img/menu/pork/sweet-and-sour-pork.webp" }
         ]
     }
 ];
