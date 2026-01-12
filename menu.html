@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Top Jacks - Menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo_noname.jpg" alt="Top Jacks">
+        </div>
+        <button class="hamburger-btn" aria-label="Open Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="site-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link active">Menu</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="mobile-nav-overlay hidden">
+            <button class="close-nav-btn">&times;</button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="menu.html" class="mobile-link active">Menu</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+            </nav>
+        </div>
+        <span id="store-status" class="badge">Checking...</span>
+    </header>
+
+    <!-- Hero / Info -->
+    <section class="hero-section">
+        <div class="search-container">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="search-input" placeholder="Search for food..." class="search-input">
+        </div>
+        <div class="store-details">
+            <span>Quezon City</span>
+            <span class="dot-separator">•</span>
+            <span>8AM - 7PM</span>
+            <span class="dot-separator">•</span>
+            <a href="contact.html" class="contact-link" style="color:inherit; text-decoration: underline;">Contact</a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <main class="menu-container">
+        <!-- Sticky Category Nav -->
+        <nav class="category-nav" id="category-nav">
+            <ul id="category-list">
+                <!-- Categories injected by JS -->
+            </ul>
+        </nav>
+
+        <!-- Menu Grid -->
+        <div id="menu-grid" class="menu-grid">
+            <!-- Menu Items injected by JS -->
+        </div>
+    </main>
+
+    <!-- Floating Cart Pill (Grab style) -->
+    <div id="cart-btn" class="cart-floating-btn hidden">
+        <div class="cart-info">
+            <span>🛒</span>
+            <span id="cart-count">0 items</span>
+        </div>
+        <div class="cart-total-preview" id="cart-total-preview">₱ 0.00</div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Order</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-items-list">
+                <!-- Cart items -->
+            </div>
+
+            <!-- Customer Details Inputs -->
+            <div class="customer-details">
+                <div class="input-group">
+                    <label for="customer-name">Name</label>
+                    <input type="text" id="customer-name" placeholder="Enter your name" class="form-input">
+                </div>
+                <div class="input-group">
+                    <label for="customer-address">Address / Landmark</label>
+                    <textarea id="customer-address" placeholder="Enter delivery address" class="form-input" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">₱ 0.00</span>
+                </div>
+                <button id="place-order-btn" class="btn-primary full-width messenger-btn">Order via Messenger</button>
+                <p class="helper-text">This will open Facebook Messenger to send your order.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast">Item added to cart</div>
+
+    <script src="script.js"></script>
+</body>
+</html>

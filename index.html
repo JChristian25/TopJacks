@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Top Jacks - Home</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .home-hero {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('img/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            border-radius: var(--radius);
+            margin-bottom: 2rem;
+        }
+        .home-hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        .home-hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 177, 79, 0.4);
+            transition: transform 0.2s;
+        }
+        .cta-btn:hover {
+            transform: scale(1.05);
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+        }
+        .feature-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 60px;
+            height: 60px;
+            background-color: #F0FDF4; /* Light Green Tint */
+            border-radius: 50%;
+            margin: 0 auto 1rem auto;
+            color: var(--primary-green);
+        }
+        .feature-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke-width: 2px;
+        }
+
+        /* Reviews Slider Styles */
+        .reviews-slider {
+            display: flex;
+            overflow-x: auto;
+            gap: 1rem;
+            padding: 1rem 0.5rem;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none; /* Firefox */
+        }
+        .reviews-slider::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
+        }
+        .review-card {
+            flex: 0 0 280px; /* Fixed width for slider cards */
+            background: white;
+            padding: 1.5rem;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            border: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .stars {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .review-text {
+            font-style: italic;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .reviewer {
+            font-weight: 700;
+            color: var(--primary-green);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo_noname.jpg" alt="Top Jacks">
+        </div>
+        <button class="hamburger-btn" aria-label="Open Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="site-nav">
+            <a href="index.html" class="nav-link active">Home</a>
+            <a href="menu.html" class="nav-link">Menu</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+        <div class="mobile-nav-overlay hidden">
+            <button class="close-nav-btn">&times;</button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link active">Home</a>
+                <a href="menu.html" class="mobile-link">Menu</a>
+                <a href="contact.html" class="mobile-link">Contact</a>
+            </nav>
+        </div>
+        <span id="store-status" class="badge">Checking...</span>
+    </header>
+
+    <main class="menu-container">
+        <!-- Hero -->
+        <section class="home-hero">
+            <h1>Chinese and Filipino Cuisine</h1>
+            <p>From our family kitchen to your table. Enjoy Chinese favorites blended with Filipino classics like Bilao, Pancit, and Ulam in Quezon City.</p>
+            <a href="menu.html" class="cta-btn">Order Now</a>
+        </section>
+
+        <!-- Features -->
+        <h2 style="margin-bottom: 1rem; text-align: center;">Why Choose Top Jacks?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-green);"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                </span>
+                <h3>Fast Delivery</h3>
+                <p style="color:var(--text-muted)">Fresh and hot meals delivered right to your doorstep via Messenger.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-green);"><path d="M18 8h1a4 4 0 0 1 0 8h-1"></path><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path><line x1="6" y1="1" x2="6" y2="4"></line><line x1="10" y1="1" x2="10" y2="4"></line><line x1="14" y1="1" x2="14" y2="4"></line></svg>
+                </span>
+                <h3>Authentic Taste</h3>
+                <p style="color:var(--text-muted)">Traditional recipes cooked with love and premium ingredients.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary-green);"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                </span>
+                <h3>Party Ready</h3>
+                <p style="color:var(--text-muted)">Our Bilaos are perfect for family gatherings and office parties.</p>
+            </div>
+        </div>
+
+        <!-- Featured Items Preview -->
+        <h2 style="margin-bottom: 1rem; text-align: center;">Best Sellers</h2>
+        <div class="menu-grid">
+            <!-- Static Preview Items -->
+            <div class="menu-item">
+                <img src="img/menu/bilao/jacks-special-bilao.png" alt="Jacks Special Bilao">
+                <div class="item-content">
+                    <div>
+                        <h4 class="item-name">Jacks Special Bilao</h4>
+                        <p class="item-desc">Our signature bilao with mixed pancit and generous toppings.</p>
+                    </div>
+                    <div class="item-footer">
+                        <div class="item-price">₱ 350.00</div>
+                        <a href="menu.html" class="add-btn" style="text-decoration:none;">➜</a>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-item">
+                <img src="img/menu/chicken/battered-chicken.png" alt="Battered Chicken">
+                <div class="item-content">
+                    <div>
+                        <h4 class="item-name">Battered Chicken</h4>
+                        <p class="item-desc">Crispy, golden-brown chicken perfect for sharing.</p>
+                    </div>
+                    <div class="item-footer">
+                        <div class="item-price">₱ 350.00</div>
+                        <a href="menu.html" class="add-btn" style="text-decoration:none;">➜</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 2rem;">
+            <a href="menu.html" class="cta-btn" style="background-color: transparent; color: var(--primary-green); border: 2px solid var(--primary-green);">View Full Menu</a>
+        </div>
+
+        <!-- Reviews Section -->
+        <h2 style="margin-top: 3rem; margin-bottom: 1rem; text-align: center;">Customer Reviews</h2>
+        <div class="reviews-slider">
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Solid lahat ng foods, lahat masarap kaya kapag may bday recommended ko talaga sya lagi."</p>
+                <div class="reviewer">- Happy Customer</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">❤️❤️❤️</div>
+                <p class="review-text">"Sarap ng spicy chicken at jack’s special! Great food."</p>
+                <div class="reviewer">- Loyal Patron</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"First time namin umorder nang ulam for lunch... Grabe ansarap!! Para kang kumain sa aunthentic chinese food sa binondo."</p>
+                <div class="reviewer">- New Customer</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">😍</div>
+                <p class="review-text">"Basta Top Jacks masarap kaya order na..."</p>
+                <div class="reviewer">- Fan</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">🌶️🌶️🌶️</div>
+                <p class="review-text">"Tikman ang kanilang Spicy Chicken, traydor ang anghang nito!! Mapaparami ang kain mo, di mo namamalayang UMUUSOK ka na!!!"</p>
+                <div class="reviewer">- Spicy Lover</div>
+            </div>
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"The best chicken ever! Pwedeng araw arawin!!! Hindi mo siya pwedeng itapat sa manok ng iba."</p>
+                <div class="reviewer">- Chicken Fanatic</div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Floating Cart Pill (Grab style) -->
+    <div id="cart-btn" class="cart-floating-btn hidden">
+        <div class="cart-info">
+            <span>🛒</span>
+            <span id="cart-count">0 items</span>
+        </div>
+        <div class="cart-total-preview" id="cart-total-preview">₱ 0.00</div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Order</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-items-list">
+                <!-- Cart items -->
+            </div>
+
+            <!-- Customer Details Inputs -->
+            <div class="customer-details">
+                <div class="input-group">
+                    <label for="customer-name">Name</label>
+                    <input type="text" id="customer-name" placeholder="Enter your name" class="form-input">
+                </div>
+                <div class="input-group">
+                    <label for="customer-address">Address / Landmark</label>
+                    <textarea id="customer-address" placeholder="Enter delivery address" class="form-input" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">₱ 0.00</span>
+                </div>
+                <button id="place-order-btn" class="btn-primary full-width messenger-btn">Order via Messenger</button>
+                <p class="helper-text">This will open Facebook Messenger to send your order.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Item added to cart</div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Top Jacks - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-card {
+            background: white;
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-sm);
+        }
+        .map-container {
+            width: 100%;
+            height: 300px;
+            background-color: #eee;
+            border-radius: var(--radius);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+        }
+        .info-row {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .info-icon {
+            font-size: 1.5rem;
+            color: var(--primary-green);
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-btn {
+            background: #F0F2F5;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .social-btn.fb {
+            color: #1877F2;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="logo">
+            <img src="img/logo_noname.jpg" alt="Top Jacks">
+        </div>
+        <button class="hamburger-btn" aria-label="Open Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <nav class="site-nav">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="menu.html" class="nav-link">Menu</a>
+            <a href="contact.html" class="nav-link active">Contact</a>
+        </nav>
+        <div class="mobile-nav-overlay hidden">
+            <button class="close-nav-btn">&times;</button>
+            <nav class="mobile-nav-links">
+                <a href="index.html" class="mobile-link">Home</a>
+                <a href="menu.html" class="mobile-link">Menu</a>
+                <a href="contact.html" class="mobile-link active">Contact</a>
+            </nav>
+        </div>
+        <span id="store-status" class="badge">Checking...</span>
+    </header>
+
+    <main class="menu-container">
+        <h1 style="margin-bottom: 1.5rem;">Contact Us</h1>
+
+        <div class="contact-card">
+            <!-- Placeholder Map -->
+            <div class="map-container" style="margin-bottom: 1.5rem;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3859.2695428089446!2d121.07914647669226!3d14.69734324918822!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397ba0cf5ade1fd%3A0x73ce8ea4012b92bf!2sTop%20Jacks%20Spicy%20Chicken%20%26%20Noodle%20House!5e0!3m2!1sen!2sph!4v1768152179202!5m2!1sen!2sph" 
+                    width="100%" 
+                    height="320" 
+                    style="border:0; border-radius: 12px;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Top Jacks Google Map Location"
+                ></iframe>
+            </div>
+
+            <div class="info-row">
+                <span class="info-icon">📍</span>
+                <div>
+                    <h3 style="margin-bottom:0.25rem">Location</h3>
+                    <p style="color:var(--text-muted)">
+                        123 Example Street, Brgy. Sample<br>
+                        Quezon City, Metro Manila
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <span class="info-icon">⏰</span>
+                <div>
+                    <h3 style="margin-bottom:0.25rem">Opening Hours</h3>
+                    <p style="color:var(--text-muted)">
+                        Monday - Sunday<br>
+                        8:00 AM - 7:00 PM
+                    </p>
+                </div>
+            </div>
+
+            <div class="info-row">
+                <span class="info-icon">📞</span>
+                <div>
+                    <h3 style="margin-bottom:0.25rem">Get in Touch</h3>
+                    <p style="color:var(--text-muted)">0912 345 6789</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/messages/t/topjacksofficial" target="_blank" class="social-btn fb">
+                            Message on Facebook
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact-card">
+            <h2 style="margin-bottom:1rem">About Top Jacks</h2>
+            <p style="color:var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">
+                Top Jacks started with a simple mission: to serve the most authentic and delicious Filipino Pancit and Bilao dishes in town. 
+                Our recipes have been passed down through generations, ensuring every bite feels like home.
+            </p>
+            <p style="color:var(--text-muted); line-height: 1.6;">
+                Whether you're celebrating a birthday, a reunion, or just craving good food, we are here to serve you.
+            </p>
+        </div>
+
+    </main>
+
+    <!-- Floating Cart Pill (Grab style) -->
+    <div id="cart-btn" class="cart-floating-btn hidden">
+        <div class="cart-info">
+            <span>🛒</span>
+            <span id="cart-count">0 items</span>
+        </div>
+        <div class="cart-total-preview" id="cart-total-preview">₱ 0.00</div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Your Order</h2>
+                <button id="close-modal" class="close-btn">&times;</button>
+            </div>
+            <div id="cart-items" class="cart-items-list">
+                <!-- Cart items -->
+            </div>
+
+            <!-- Customer Details Inputs -->
+            <div class="customer-details">
+                <div class="input-group">
+                    <label for="customer-name">Name</label>
+                    <input type="text" id="customer-name" placeholder="Enter your name" class="form-input">
+                </div>
+                <div class="input-group">
+                    <label for="customer-address">Address / Landmark</label>
+                    <textarea id="customer-address" placeholder="Enter delivery address" class="form-input" rows="2"></textarea>
+                </div>
+            </div>
+
+            <div class="cart-footer">
+                <div class="total-row">
+                    <span>Total</span>
+                    <span id="cart-total">₱ 0.00</span>
+                </div>
+                <button id="place-order-btn" class="btn-primary full-width messenger-btn">Order via Messenger</button>
+                <p class="helper-text">This will open Facebook Messenger to send your order.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Item added to cart</div>
+    <script src="script.js"></script>
+</body>
+</html>
