@@ -1,0 +1,7 @@
+<svg width="100" height="40" viewBox="0 0 100 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="100" height="40" rx="4" fill="#1E293B"/>
+  <path d="M30 15L25 11V13H20V17H25V19L30 15Z" fill="white"/>
+  <rect x="32" y="11" width="8" height="8" rx="1" fill="white"/>
+  <rect x="42" y="11" width="8" height="8" rx="1" fill="white"/>
+  <text x="65" y="25" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Bank</text>
+</svg>

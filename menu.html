@@ -95,9 +95,59 @@
                     <label for="customer-contact">Contact Number</label>
                     <input type="tel" id="customer-contact" placeholder="Enter your contact number" class="form-input">
                 </div>
+                
+                <!-- Order Type Selection -->
                 <div class="input-group">
+                    <label>Order Type</label>
+                    <div class="option-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                        <label class="option-card" style="cursor: pointer;">
+                            <input type="radio" name="order-type" value="pickup" style="display: none;">
+                            <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
+                                <img src="img/delivery/pickup-icon.svg" alt="Pick-up" style="height: 30px; margin-bottom: 0.25rem;">
+                                <div style="font-size: 0.85rem; font-weight: 500;">Pick-up</div>
+                            </div>
+                        </label>
+                        <label class="option-card" style="cursor: pointer;">
+                            <input type="radio" name="order-type" value="grab" style="display: none;">
+                            <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
+                                <img src="img/delivery/grab-logo.svg" alt="Grab" style="height: 30px; margin-bottom: 0.25rem;">
+                                <div style="font-size: 0.85rem; font-weight: 500;">Grab</div>
+                            </div>
+                        </label>
+                        <label class="option-card" style="cursor: pointer;">
+                            <input type="radio" name="order-type" value="lalamove" style="display: none;">
+                            <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
+                                <img src="img/delivery/lalamove-logo.svg" alt="Lalamove" style="height: 30px; margin-bottom: 0.25rem;">
+                                <div style="font-size: 0.85rem; font-weight: 500;">Lalamove</div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="input-group" id="address-group">
                     <label for="customer-address">Address / Landmark</label>
                     <textarea id="customer-address" placeholder="Enter delivery address" class="form-input" rows="2"></textarea>
+                </div>
+                
+                <!-- Payment Method Selection -->
+                <div class="input-group">
+                    <label>Payment Method</label>
+                    <div class="option-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                        <label class="option-card" style="cursor: pointer;">
+                            <input type="radio" name="payment-method" value="gcash" style="display: none;">
+                            <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
+                                <img src="img/payment/gcash-logo.svg" alt="GCash" style="height: 30px; margin-bottom: 0.25rem;">
+                                <div style="font-size: 0.85rem; font-weight: 500;">GCash</div>
+                            </div>
+                        </label>
+                        <label class="option-card" style="cursor: pointer;">
+                            <input type="radio" name="payment-method" value="bank" style="display: none;">
+                            <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
+                                <img src="img/payment/bank-transfer.svg" alt="Bank Transfer" style="height: 30px; margin-bottom: 0.25rem;">
+                                <div style="font-size: 0.85rem; font-weight: 500;">Bank Transfer</div>
+                            </div>
+                        </label>
+                    </div>
                 </div>
             </div>
 

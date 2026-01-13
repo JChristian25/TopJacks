@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 100);
     }
     setupEventListeners();
+    setupOptionCards();
 });
 
 // Store Status
@@ -294,40 +295,71 @@ window.showSizeModal = function(itemName, item) {
     content.className = 'modal-content';
     content.style.maxWidth = '400px';
     
-    let sizeOptionsHtml = '';
-    bilaoSizes.forEach((sizeOption, index) => {
-        sizeOptionsHtml += `
-            <button class="size-option-btn" onclick="selectSize('${itemName.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', ${sizeOption.price}, '${sizeOption.size}')" style="
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                padding: 1rem;
-                margin-bottom: 0.5rem;
-                background: white;
-                border: 2px solid #E5E7EB;
-                border-radius: 8px;
-                cursor: pointer;
-                font-size: 1rem;
-                transition: all 0.2s;
-            " onmouseover="this.style.borderColor='var(--primary-green)'; this.style.backgroundColor='#F0FDF4';" onmouseout="this.style.borderColor='#E5E7EB'; this.style.backgroundColor='white';">
-                <span style="font-weight: 500;">${sizeOption.size}</span>
-                <span style="color: var(--primary-green); font-weight: 600;">₱ ${sizeOption.price.toFixed(2)}</span>
-            </button>
-        `;
-    });
-    
-    content.innerHTML = `
-        <div class="modal-header">
-            <h2>Select Size</h2>
-            <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
-        </div>
-        <div style="padding-bottom: 1rem;">
-            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">${itemName}</h3>
-            ${sizeOptionsHtml}
-        </div>
+    const header = document.createElement('div');
+    header.className = 'modal-header';
+    header.innerHTML = `
+        <h2>Select Size</h2>
+        <button class="close-btn">&times;</button>
     `;
     
+    const closeBtn = header.querySelector('.close-btn');
+    closeBtn.addEventListener('click', () => modal.remove());
+    
+    const body = document.createElement('div');
+    body.style.paddingBottom = '1rem';
+    
+    const title = document.createElement('h3');
+    title.style.marginBottom = '1rem';
+    title.style.fontSize = '1.1rem';
+    title.textContent = itemName;
+    body.appendChild(title);
+    
+    // Create size option buttons
+    bilaoSizes.forEach((sizeOption) => {
+        const btn = document.createElement('button');
+        btn.className = 'size-option-btn';
+        btn.style.cssText = `
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background: white;
+            border: 2px solid #E5E7EB;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.2s;
+        `;
+        
+        btn.innerHTML = `
+            <span style="font-weight: 500;">${sizeOption.size}</span>
+            <span style="color: var(--primary-green); font-weight: 600;">₱ ${sizeOption.price.toFixed(2)}</span>
+        `;
+        
+        // Add hover effects
+        btn.addEventListener('mouseenter', () => {
+            btn.style.borderColor = 'var(--primary-green)';
+            btn.style.backgroundColor = '#F0FDF4';
+        });
+        btn.addEventListener('mouseleave', () => {
+            btn.style.borderColor = '#E5E7EB';
+            btn.style.backgroundColor = 'white';
+        });
+        
+        // Add click handler
+        btn.addEventListener('click', () => {
+            const fullName = `${itemName} - ${sizeOption.size}`;
+            addToCart(fullName, sizeOption.price);
+            modal.remove();
+        });
+        
+        body.appendChild(btn);
+    });
+    
+    content.appendChild(header);
+    content.appendChild(body);
     modal.appendChild(content);
     document.body.appendChild(modal);
     
@@ -335,13 +367,6 @@ window.showSizeModal = function(itemName, item) {
     modal.addEventListener('click', (e) => {
         if (e.target === modal) modal.remove();
     });
-};
-
-window.selectSize = function(itemName, price, size) {
-    const fullName = `${itemName} - ${size}`;
-    addToCart(fullName, price);
-    // Close the size modal
-    document.querySelector('.modal[style*="z-index: 2000"]')?.remove();
 };
 
 function showToast(message) {
@@ -422,6 +447,37 @@ window.removeFromCart = function(index) {
     }
 };
 
+// Setup option card selection
+function setupOptionCards() {
+    document.querySelectorAll('.option-card').forEach(card => {
+        card.addEventListener('click', function() {
+            const radio = this.querySelector('input[type="radio"]');
+            const radioName = radio.name;
+            
+            // Remove selected state from all cards in this group
+            document.querySelectorAll(`input[name="${radioName}"]`).forEach(r => {
+                r.closest('.option-card').querySelector('.option-content').style.borderColor = '#E5E7EB';
+                r.closest('.option-card').querySelector('.option-content').style.backgroundColor = 'white';
+            });
+            
+            // Add selected state to clicked card
+            radio.checked = true;
+            this.querySelector('.option-content').style.borderColor = 'var(--primary-green)';
+            this.querySelector('.option-content').style.backgroundColor = '#F0FDF4';
+            
+            // Show/hide address field based on order type
+            if (radioName === 'order-type') {
+                const addressGroup = document.getElementById('address-group');
+                if (radio.value === 'pickup') {
+                    addressGroup.style.display = 'none';
+                } else {
+                    addressGroup.style.display = 'block';
+                }
+            }
+        });
+    });
+}
+
 function setupEventListeners() {
     cartBtn.addEventListener('click', openCart);
     closeModal.addEventListener('click', closeCart);
@@ -435,9 +491,26 @@ function setupEventListeners() {
         const name = customerNameInput.value.trim();
         const contact = customerContactInput.value.trim();
         const address = customerAddressInput.value.trim();
+        const orderType = document.querySelector('input[name="order-type"]:checked');
+        const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
 
-        if (!name || !contact || !address) {
-            alert("Please enter your Name, Contact Number, and Address to proceed.");
+        if (!name || !contact) {
+            alert("Please enter your Name and Contact Number to proceed.");
+            return;
+        }
+        
+        if (!orderType) {
+            alert("Please select an Order Type (Pick-up or Delivery).");
+            return;
+        }
+        
+        if (orderType.value !== 'pickup' && !address) {
+            alert("Please enter your Address for delivery.");
+            return;
+        }
+        
+        if (!paymentMethod) {
+            alert("Please select a Payment Method.");
             return;
         }
         
@@ -470,8 +543,23 @@ function setupEventListeners() {
         message += `\nTotal: ₱ ${grandTotal.toFixed(2)}\n\n`;
         message += `Customer: ${name}\n`;
         message += `Contact: ${contact}\n`;
-        message += `Address: ${address}\n`;
-        message += `Link: ${window.location.href}`; // Add current page link
+        
+        const orderTypeText = {
+            'pickup': 'Pick-up',
+            'grab': 'Delivery via Grab',
+            'lalamove': 'Delivery via Lalamove'
+        };
+        message += `Order Type: ${orderTypeText[orderType.value]}\n`;
+        
+        if (orderType.value !== 'pickup') {
+            message += `Address: ${address}\n`;
+        }
+        
+        const paymentText = {
+            'gcash': 'GCash',
+            'bank': 'Bank Transfer'
+        };
+        message += `Payment: ${paymentText[paymentMethod.value]}`;
 
         // 3. Show Copy Modal
         showOrderSummaryModal(message);
@@ -550,6 +638,21 @@ function showOrderSummaryModal(message) {
         customerNameInput.value = '';
         customerContactInput.value = '';
         customerAddressInput.value = '';
+        
+        // Reset radio buttons
+        document.querySelectorAll('input[name="order-type"]').forEach(r => {
+            r.checked = false;
+            r.closest('.option-card').querySelector('.option-content').style.borderColor = '#E5E7EB';
+            r.closest('.option-card').querySelector('.option-content').style.backgroundColor = 'white';
+        });
+        document.querySelectorAll('input[name="payment-method"]').forEach(r => {
+            r.checked = false;
+            r.closest('.option-card').querySelector('.option-content').style.borderColor = '#E5E7EB';
+            r.closest('.option-card').querySelector('.option-content').style.backgroundColor = 'white';
+        });
+        
+        // Show address field again
+        document.getElementById('address-group').style.display = 'block';
     };
 }
 

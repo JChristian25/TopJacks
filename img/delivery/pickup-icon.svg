@@ -1,0 +1,5 @@
+<svg width="80" height="40" viewBox="0 0 80 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="80" height="40" rx="4" fill="#6B7280"/>
+  <path d="M30 12H35L38 18H42V24H38C38 26.2 36.2 28 34 28C31.8 28 30 26.2 30 24H26V16L30 12ZM30 14V16H36L34 14H30ZM34 20C32.9 20 32 20.9 32 22C32 23.1 32.9 24 34 24C35.1 24 36 23.1 36 22C36 20.9 35.1 20 34 20Z" fill="white"/>
+  <text x="55" y="25" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">Pick-up</text>
+</svg>
