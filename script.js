@@ -23,10 +23,10 @@ const menuData = [
     {
         category: "CHICKEN",
         items: [
-            { name: "Battered Chicken", image: "img/menu/chicken/battered-chicken.webp", price: 300 },
-            { name: "Chicken Curry", image: "img/menu/chicken/chicken-curry.webp", price: 300 },
-            { name: "Chicken Mushroom", image: "img/menu/chicken/chicken-mushroom.webp", price: 300 },
-            { name: "Spicy Chicken", image: "img/menu/chicken/spicy-chicken.webp", price: 300 }
+            { name: "Battered Chicken", image: "img/menu/chicken/battered-chicken.webp", price: 350 },
+            { name: "Chicken Curry", image: "img/menu/chicken/chicken-curry.webp", price: 350 },
+            { name: "Chicken Mushroom", image: "img/menu/chicken/chicken-mushroom.webp", price: 350 },
+            { name: "Spicy Chicken", image: "img/menu/chicken/spicy-chicken.webp", price: 350 }
         ]
     },
     {
@@ -79,6 +79,7 @@ const cartTotal = document.getElementById('cart-total');
 const placeOrderBtn = document.getElementById('place-order-btn');
 const customerNameInput = document.getElementById('customer-name');
 const customerContactInput = document.getElementById('customer-contact');
+const customerDatetimeInput = document.getElementById('customer-datetime');
 const customerAddressInput = document.getElementById('customer-address');
 const toast = document.getElementById('toast');
 
@@ -468,10 +469,32 @@ function setupOptionCards() {
             // Show/hide address field based on order type
             if (radioName === 'order-type') {
                 const addressGroup = document.getElementById('address-group');
+                const cashOption = document.querySelector('.payment-cash');
+                const paymentOptionsGrid = document.getElementById('payment-options');
+                
                 if (radio.value === 'pickup') {
                     addressGroup.style.display = 'none';
+                    // Show Cash option for pickup
+                    if (cashOption) {
+                        cashOption.style.display = 'block';
+                        // Adjust grid to 3 columns when cash is visible
+                        paymentOptionsGrid.style.gridTemplateColumns = 'repeat(3, 1fr)';
+                    }
                 } else {
                     addressGroup.style.display = 'block';
+                    // Hide Cash option for delivery
+                    if (cashOption) {
+                        cashOption.style.display = 'none';
+                        // Reset to 2 columns
+                        paymentOptionsGrid.style.gridTemplateColumns = 'repeat(2, 1fr)';
+                        // Uncheck cash if it was selected
+                        const cashRadio = cashOption.querySelector('input[type="radio"]');
+                        if (cashRadio && cashRadio.checked) {
+                            cashRadio.checked = false;
+                            cashOption.querySelector('.option-content').style.borderColor = '#E5E7EB';
+                            cashOption.querySelector('.option-content').style.backgroundColor = 'white';
+                        }
+                    }
                 }
             }
         });
@@ -490,12 +513,18 @@ function setupEventListeners() {
 
         const name = customerNameInput.value.trim();
         const contact = customerContactInput.value.trim();
+        const datetime = customerDatetimeInput.value;
         const address = customerAddressInput.value.trim();
         const orderType = document.querySelector('input[name="order-type"]:checked');
         const paymentMethod = document.querySelector('input[name="payment-method"]:checked');
 
         if (!name || !contact) {
-            alert("Please enter your Name and Contact Number to proceed.");
+            alert("Please enter your Name and Cellphone Number to proceed.");
+            return;
+        }
+        
+        if (!datetime) {
+            alert("Please select Date & Time of PickUp/Delivery.");
             return;
         }
         
@@ -541,25 +570,35 @@ function setupEventListeners() {
         }
 
         message += `\nTotal: ₱ ${grandTotal.toFixed(2)}\n\n`;
-        message += `Customer: ${name}\n`;
-        message += `Contact: ${contact}\n`;
         
-        const orderTypeText = {
-            'pickup': 'Pick-up',
-            'grab': 'Delivery via Grab',
-            'lalamove': 'Delivery via Lalamove'
-        };
-        message += `Order Type: ${orderTypeText[orderType.value]}\n`;
+        // Format datetime
+        const dt = new Date(datetime);
+        const formattedDatetime = dt.toLocaleString('en-PH', {
+            month: 'long',
+            day: 'numeric',
+            year: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+        
+        message += `ORDER INFORMATION:\n`;
+        message += `Name: ${name}\n`;
+        message += `Cellphone #: ${contact}\n`;
+        message += `Date & Time of PickUp/Delivery: ${formattedDatetime}\n`;
         
         if (orderType.value !== 'pickup') {
-            message += `Address: ${address}\n`;
+            message += `Delivery Address/Landmark/Pin Location: ${address}\n`;
+        } else {
+            message += `Delivery Address/Landmark/Pin Location: Pick-up at store\n`;
         }
         
         const paymentText = {
+            'cash': 'Cash',
             'gcash': 'GCash',
             'bank': 'Bank Transfer'
         };
-        message += `Payment: ${paymentText[paymentMethod.value]}`;
+        message += `Mode of Payment: ${paymentText[paymentMethod.value]}`;
 
         // 3. Show Copy Modal
         showOrderSummaryModal(message);

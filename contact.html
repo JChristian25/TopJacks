@@ -160,6 +160,10 @@
                     <input type="text" id="contact-form-name" placeholder="Your name" class="form-input" required>
                 </div>
                 <div class="input-group">
+                    <label for="contact-form-contact">Contact Number</label>
+                    <input type="tel" id="contact-form-contact" placeholder="Your contact number" class="form-input" required>
+                </div>
+                <div class="input-group">
                     <label for="contact-form-email">Email</label>
                     <input type="email" id="contact-form-email" placeholder="your@email.com" class="form-input" required>
                 </div>
@@ -202,8 +206,12 @@
                     <input type="text" id="customer-name" placeholder="Enter your name" class="form-input">
                 </div>
                 <div class="input-group">
-                    <label for="customer-contact">Contact Number</label>
+                    <label for="customer-contact">Cellphone #</label>
                     <input type="tel" id="customer-contact" placeholder="Enter your contact number" class="form-input">
+                </div>
+                <div class="input-group">
+                    <label for="customer-datetime">Date & Time of PickUp/Delivery</label>
+                    <input type="datetime-local" id="customer-datetime" class="form-input">
                 </div>
                 
                 <!-- Order Type Selection -->
@@ -235,22 +243,29 @@
                 </div>
                 
                 <div class="input-group" id="address-group">
-                    <label for="customer-address">Address / Landmark</label>
-                    <textarea id="customer-address" placeholder="Enter delivery address" class="form-input" rows="2"></textarea>
+                    <label for="customer-address">Delivery Address/Landmark/Pin Location</label>
+                    <textarea id="customer-address" placeholder="Enter delivery address, landmark, or pin location" class="form-input" rows="2"></textarea>
                 </div>
                 
                 <!-- Payment Method Selection -->
-                <div class="input-group">
+                <div class="input-group" id="payment-method-group">
                     <label>Payment Method</label>
-                    <div class="option-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
-                        <label class="option-card" style="cursor: pointer;">
+                    <div class="option-grid" id="payment-options" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.5rem; margin-top: 0.5rem;">
+                        <label class="option-card payment-cash" style="cursor: pointer; display: none;">
+                            <input type="radio" name="payment-method" value="cash" style="display: none;">
+                            <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
+                                <div style="font-size: 1.5rem; margin-bottom: 0.25rem;">💵</div>
+                                <div style="font-size: 0.85rem; font-weight: 500;">Cash</div>
+                            </div>
+                        </label>
+                        <label class="option-card payment-gcash" style="cursor: pointer;">
                             <input type="radio" name="payment-method" value="gcash" style="display: none;">
                             <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
                                 <img src="img/payment/gcash-logo.svg" alt="GCash" style="height: 30px; margin-bottom: 0.25rem;">
                                 <div style="font-size: 0.85rem; font-weight: 500;">GCash</div>
                             </div>
                         </label>
-                        <label class="option-card" style="cursor: pointer;">
+                        <label class="option-card payment-bank" style="cursor: pointer;">
                             <input type="radio" name="payment-method" value="bank" style="display: none;">
                             <div class="option-content" style="border: 2px solid #E5E7EB; border-radius: 8px; padding: 0.75rem; text-align: center; transition: all 0.2s;">
                                 <img src="img/payment/bank-transfer.svg" alt="Bank Transfer" style="height: 30px; margin-bottom: 0.25rem;">

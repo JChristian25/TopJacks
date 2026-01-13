@@ -51,6 +51,22 @@ body {
     height: var(--header-height);
 }
 
+@media (max-width: 767px) {
+    .logo {
+        flex-shrink: 0;
+    }
+    
+    .hamburger-btn {
+        order: 10;
+        flex-shrink: 0;
+    }
+    
+    #store-status {
+        margin-left: auto;
+        margin-right: 1rem;
+    }
+}
+
 .hamburger-btn {
     display: flex;
     flex-direction: column;
