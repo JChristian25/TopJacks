@@ -1,56 +1,63 @@
 // 4. DATA
+const bilaoSizes = [
+    { size: '12" (6pax)', price: 600 },
+    { size: '14" (12pax)', price: 800 },
+    { size: '16" (20pax)', price: 1000 },
+    { size: '18" (30pax)', price: 1500 }
+];
+
 const menuData = [
     {
         category: "BILAO",
+        hasSizes: true,
         items: [
-            { name: "Bihon", image: "img/menu/bilao/bihon.webp" },
-            { name: "Canton Bihon", image: "img/menu/bilao/canton-bihon.webp" },
-            { name: "Canton Guisado", image: "img/menu/bilao/canton-guisado.webp" },
-            { name: "Jacks Special Bilao", image: "img/menu/bilao/jacks-special-bilao.webp" },
-            { name: "Miki Bihon", image: "img/menu/bilao/miki-bihon.webp" },
-            { name: "Palabok", image: "img/menu/bilao/palabok.webp" },
-            { name: "Spaghetti", image: "img/menu/bilao/spaghetti.webp" }
+            { name: "Bihon", image: "img/menu/bilao/bihon.webp", price: 600 },
+            { name: "Canton Bihon", image: "img/menu/bilao/canton-bihon.webp", price: 600 },
+            { name: "Canton Guisado", image: "img/menu/bilao/canton-guisado.webp", price: 600 },
+            { name: "Jacks Special Bilao", image: "img/menu/bilao/jacks-special-bilao.webp", price: 600 },
+            { name: "Miki Bihon", image: "img/menu/bilao/miki-bihon.webp", price: 600 },
+            { name: "Palabok", image: "img/menu/bilao/palabok.webp", price: 600 },
+            { name: "Spaghetti", image: "img/menu/bilao/spaghetti.webp", price: 600 }
         ]
     },
     {
         category: "CHICKEN",
         items: [
-            { name: "Battered Chicken", image: "img/menu/chicken/battered-chicken.webp" },
-            { name: "Chicken Curry", image: "img/menu/chicken/chicken-curry.webp" },
-            { name: "Chicken Mushroom", image: "img/menu/chicken/chicken-mushroom.webp" },
-            { name: "Spicy Chicken", image: "img/menu/chicken/spicy-chicken.webp" }
+            { name: "Battered Chicken", image: "img/menu/chicken/battered-chicken.webp", price: 300 },
+            { name: "Chicken Curry", image: "img/menu/chicken/chicken-curry.webp", price: 300 },
+            { name: "Chicken Mushroom", image: "img/menu/chicken/chicken-mushroom.webp", price: 300 },
+            { name: "Spicy Chicken", image: "img/menu/chicken/spicy-chicken.webp", price: 300 }
         ]
     },
     {
         category: "PANCIT SHORT ORDER",
         items: [
-            { name: "Bihon Guisado", image: "img/menu/pancit/bihon-guisado.webp" },
-            { name: "Canton Bihon", image: "img/menu/pancit/canton-bihon.webp" },
-            { name: "Canton Guisado", image: "img/menu/pancit/canton-guisado.webp" },
-            { name: "Jacks Special", image: "img/menu/pancit/jacks-special.webp" },
-            { name: "Miki Bihon", image: "img/menu/pancit/miki-bihon.webp" },
-            { name: "Special Lomi", image: "img/menu/pancit/special-lomi.webp" }
+            { name: "Bihon Guisado", image: "img/menu/pancit/bihon-guisado.webp", price: 200, description: "Good for 3" },
+            { name: "Canton Bihon", image: "img/menu/pancit/canton-bihon.webp", price: 200, description: "Good for 3" },
+            { name: "Canton Guisado", image: "img/menu/pancit/canton-guisado.webp", price: 200, description: "Good for 3" },
+            { name: "Jacks Special", image: "img/menu/pancit/jacks-special.webp", price: 200, description: "Good for 3" },
+            { name: "Miki Bihon", image: "img/menu/pancit/miki-bihon.webp", price: 200, description: "Good for 3" },
+            { name: "Special Lomi", image: "img/menu/pancit/special-lomi.webp", price: 200, description: "Good for 3" }
         ]
     },
     {
         category: "PORK AND VEGGIES",
         items: [
-            { name: "Crispy Pata", image: "img/menu/pork/crispy-pata.webp" },
-            { name: "Lechon con Ampalaya", image: "img/menu/pork/lechon-con-ampalaya.webp" },
-            { name: "Lechon on Tokwa", image: "img/menu/pork/lechon-con-tokwa.webp" },
-            { name: "Lumpiang Shanghai", image: "img/menu/pork/lumpiang-shanghai.webp" },
-            { name: "Pata Tim", image: "img/menu/pork/pata-tim.webp" },
-            { name: "Pork Chopsuey", image: "img/menu/pork/pork-chopsuey.webp" },
-            { name: "Pork Mushroom", image: "img/menu/pork/pork-mushroom.webp" },
-            { name: "Pork Sisig", image: "img/menu/pork/pork-sisig.webp" },
-            { name: "Sweet and Sour Pork", image: "img/menu/pork/sweet-and-sour-pork.webp" }
+            { name: "Crispy Pata", image: "img/menu/pork/crispy-pata.webp", price: 750 },
+            { name: "Lechon con Ampalaya", image: "img/menu/pork/lechon-con-ampalaya.webp", price: 250 },
+            { name: "Lechon on Tokwa", image: "img/menu/pork/lechon-con-tokwa.webp", price: 250 },
+            { name: "Lumpiang Shanghai", image: "img/menu/pork/lumpiang-shanghai.webp", price: 230, description: "12 pcs" },
+            { name: "Pata Tim", image: "img/menu/pork/pata-tim.webp", price: 750 },
+            { name: "Pork Chopsuey", image: "img/menu/pork/pork-chopsuey.webp", price: 200 },
+            { name: "Pork Mushroom", image: "img/menu/pork/pork-mushroom.webp", price: 250 },
+            { name: "Pork Sisig", image: "img/menu/pork/pork-sisig.webp", price: 250 },
+            { name: "Sweet and Sour Pork", image: "img/menu/pork/sweet-and-sour-pork.webp", price: 250 }
         ]
     }
 ];
 
 // State
 let cart = JSON.parse(localStorage.getItem('topjacks_cart')) || [];
-const PRICE = 350;
 
 // Helper to Save Cart
 function saveCart() {
@@ -71,6 +78,7 @@ const cartItemsContainer = document.getElementById('cart-items');
 const cartTotal = document.getElementById('cart-total');
 const placeOrderBtn = document.getElementById('place-order-btn');
 const customerNameInput = document.getElementById('customer-name');
+const customerContactInput = document.getElementById('customer-contact');
 const customerAddressInput = document.getElementById('customer-address');
 const toast = document.getElementById('toast');
 
@@ -157,20 +165,32 @@ function renderMenu() {
 
         // Items
         cat.items.forEach(item => {
-            const itemCard = createItemCard(item, cat.category);
+            const itemCard = createItemCard(item, cat.category, cat.hasSizes);
             menuGrid.appendChild(itemCard);
         });
     });
 }
 
-function createItemCard(item, category) {
+function createItemCard(item, category, hasSizes) {
     const name = item.name;
     const image = item.image;
+    const price = item.price;
     const card = document.createElement('div');
     card.className = 'menu-item';
 
-    // Added a fake description for "app-like" feel
-    const description = "Delicious authentic dish made with fresh ingredients.";
+    // Use custom description or default
+    const description = item.description || "Delicious authentic dish made with fresh ingredients.";
+    
+    // For Bilao items, show "From" price
+    const priceDisplay = hasSizes ? `From ₱ ${price.toFixed(2)}` : `₱ ${price.toFixed(2)}`;
+    
+    // Encode name for onclick to handle quotes/special chars
+    const encodedName = name.replace(/'/g, "\\'");
+    const encodedItem = JSON.stringify(item).replace(/"/g, '&quot;');
+    
+    const onclick = hasSizes 
+        ? `showSizeModal('${encodedName}', ${encodedItem})` 
+        : `addToCart('${encodedName}', ${price})`;
 
     card.innerHTML = `
         <img src="${image}" alt="${name}" loading="lazy">
@@ -180,8 +200,8 @@ function createItemCard(item, category) {
                 <p class="item-desc">${description}</p>
             </div>
             <div class="item-footer">
-                <div class="item-price">₱ ${PRICE.toFixed(2)}</div>
-                <button class="add-btn" aria-label="Add to cart" onclick="addToCart('${name}')">+</button>
+                <div class="item-price">${priceDisplay}</div>
+                <button class="add-btn" aria-label="Add to cart" onclick="${onclick}">+</button>
             </div>
         </div>
     `;
@@ -258,10 +278,70 @@ function updateActiveCategory(index) {
 }
 
 // Add to Cart
-window.addToCart = function(itemName) {
-    cart.push({ name: itemName, price: PRICE });
+window.addToCart = function(itemName, price) {
+    cart.push({ name: itemName, price: price });
     saveCart();
     showToast(`${itemName} added`);
+};
+
+// Show Size Selection Modal for Bilao items
+window.showSizeModal = function(itemName, item) {
+    const modal = document.createElement('div');
+    modal.className = 'modal visible';
+    modal.style.zIndex = '2000';
+    
+    const content = document.createElement('div');
+    content.className = 'modal-content';
+    content.style.maxWidth = '400px';
+    
+    let sizeOptionsHtml = '';
+    bilaoSizes.forEach((sizeOption, index) => {
+        sizeOptionsHtml += `
+            <button class="size-option-btn" onclick="selectSize('${itemName.replace(/'/g, "\\'").replace(/"/g, '&quot;')}', ${sizeOption.price}, '${sizeOption.size}')" style="
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+                padding: 1rem;
+                margin-bottom: 0.5rem;
+                background: white;
+                border: 2px solid #E5E7EB;
+                border-radius: 8px;
+                cursor: pointer;
+                font-size: 1rem;
+                transition: all 0.2s;
+            " onmouseover="this.style.borderColor='var(--primary-green)'; this.style.backgroundColor='#F0FDF4';" onmouseout="this.style.borderColor='#E5E7EB'; this.style.backgroundColor='white';">
+                <span style="font-weight: 500;">${sizeOption.size}</span>
+                <span style="color: var(--primary-green); font-weight: 600;">₱ ${sizeOption.price.toFixed(2)}</span>
+            </button>
+        `;
+    });
+    
+    content.innerHTML = `
+        <div class="modal-header">
+            <h2>Select Size</h2>
+            <button class="close-btn" onclick="this.closest('.modal').remove()">&times;</button>
+        </div>
+        <div style="padding-bottom: 1rem;">
+            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">${itemName}</h3>
+            ${sizeOptionsHtml}
+        </div>
+    `;
+    
+    modal.appendChild(content);
+    document.body.appendChild(modal);
+    
+    // Close on outside click
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) modal.remove();
+    });
+};
+
+window.selectSize = function(itemName, price, size) {
+    const fullName = `${itemName} - ${size}`;
+    addToCart(fullName, price);
+    // Close the size modal
+    document.querySelector('.modal[style*="z-index: 2000"]')?.remove();
 };
 
 function showToast(message) {
@@ -353,10 +433,11 @@ function setupEventListeners() {
         if (cart.length === 0) return;
 
         const name = customerNameInput.value.trim();
+        const contact = customerContactInput.value.trim();
         const address = customerAddressInput.value.trim();
 
-        if (!name || !address) {
-            alert("Please enter your Name and Address to proceed.");
+        if (!name || !contact || !address) {
+            alert("Please enter your Name, Contact Number, and Address to proceed.");
             return;
         }
         
@@ -388,6 +469,7 @@ function setupEventListeners() {
 
         message += `\nTotal: ₱ ${grandTotal.toFixed(2)}\n\n`;
         message += `Customer: ${name}\n`;
+        message += `Contact: ${contact}\n`;
         message += `Address: ${address}\n`;
         message += `Link: ${window.location.href}`; // Add current page link
 
@@ -466,8 +548,51 @@ function showOrderSummaryModal(message) {
         
         // Reset Inputs
         customerNameInput.value = '';
+        customerContactInput.value = '';
         customerAddressInput.value = '';
     };
+}
+
+// Contact Form Handler (Mock Email)
+if (document.getElementById('contact-form')) {
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const name = document.getElementById('contact-form-name').value;
+        const email = document.getElementById('contact-form-email').value;
+        const message = document.getElementById('contact-form-message').value;
+        const statusDiv = document.getElementById('contact-form-status');
+        
+        // Mock email sending (simulating API call)
+        statusDiv.style.display = 'block';
+        statusDiv.style.backgroundColor = '#FFF9E6';
+        statusDiv.style.color = '#856404';
+        statusDiv.style.border = '1px solid #FFE69C';
+        statusDiv.textContent = 'Sending your message...';
+        
+        // Simulate network delay
+        setTimeout(() => {
+            // Mock success
+            console.log('Mock Email Sent:');
+            console.log('To: topjacksofficial@gmail.com');
+            console.log('From:', email);
+            console.log('Name:', name);
+            console.log('Message:', message);
+            
+            statusDiv.style.backgroundColor = '#D4EDDA';
+            statusDiv.style.color = '#155724';
+            statusDiv.style.border = '1px solid #C3E6CB';
+            statusDiv.textContent = '✓ Message sent successfully! We\'ll get back to you soon.';
+            
+            // Clear form
+            this.reset();
+            
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }, 1500);
+    });
 }
 
 // Intersection Observer for Scroll Spy (Auto-update active category)
